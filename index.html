@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Solana Shield | 2FA For Your Hot Wallet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://www.herokucdn.com/purple3/latest/purple3.min.css">
+
+   <style>
+     #shield-logs {
+       height: 200px;
+       width: 500px;
+       overflow-x: hidden;
+       overflow-y: auto;
+       text-align: center;
+       padding: 5px;
+       background-color: rgb(21, 21, 21);
+     }
+
+     #header {
+         font-size: 1.5em;
+         color: white;
+     }
+
+     #sub-header {
+      background-color: rgb(21, 21, 21);
+      margin-top: 10px;
+      padding: 10px;
+     }
+
+     #sub-header a {
+       color: white;
+     }
+
+     a {
+       color: white;
+     }
+
+      .glow-on-hover {
+       
+      width: 220px;
+      height: 50px;
+      border: none;
+      outline: none;
+      color: #fff;
+      background-color: rgb(41, 41, 41);
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+  }
+
+  .glow-on-hover:before {
+      content: '';
+      background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+      position: absolute;
+      top: -2px;
+      left:-2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: glowing 20s linear infinite;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+      border-radius: 10px;
+  }
+
+  .glow-on-hover:active {
+      color: #000;
+  }
+
+  .glow-on-hover:active:after {
+      background: transparent;
+  }
+
+  .glow-on-hover:hover:before {
+      opacity: 1;
+  }
+
+  .glow-on-hover:after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgb(41, 41, 41);
+      left: 0;
+      top: 0;
+      border-radius: 10px;
+  }
+
+  .disabled {
+    pointer-events: none;
+  }
+
+  @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+  }
+   </style>
+ 
+</head>
+<body id="bg-color" class="bg-black code white">
+  <div class="main-content flex flex-column justify-center items-center w-100 mt4">
+    <div class='br2 flex flex-column items-center pv3'>
+      <img src="https://github.com/joeshmoenft/solana-shield/raw/main/src/img/logo-medium.png" width="200" height="200" />
+      <div class='f1 mt2 mb1'>Solana Shield</div>
+      <div id="sub-header">Powered by <a href="https://twitter.com/JoeShmoeNFT" target="_blank">Joe Shmoes</a></div>
+      <a href="https://github.com/joeshmoenft/solana-shield" target="_blank"><button class="glow-on-hover mt3">Install from Github</button></a>
+        <div class='f2 mt4 mb1'>A Condom For Your Hot Wallet</div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          When Solana Shield Is Activated, any SOL in your Hot Wallet is automatically transferred to your Cold Wallet. 
+        </div>
+        <div class='f4 mt4 w-60 ma4 lh-copy'>
+          By immediately sending all SOL out of your wallet, Solana Shield disincentivizes and locks out bad actors from attacking your wallet and leaves your assets secured on your Cold Wallet.
+        </div>
+        <div class='f2 mt4 mb1'>Keep Your Wallet Covered</div>
+        <div class='f4 mt4 mb3 w-60 ma4 lh-copy'>
+          With a zero SOL balance, there is no SOL to steal or use to transfer your NFTs. Meanwhile, your holdings are safely stored in your Cold Wallet until you’re ready to use them. 
+
+          Solana Shield is a new form of 2-Factor-Authentication to prevent malicious transactions.          
+        </div>
+        
+        <div class='f2 mt4 mb1 mt4'>A Letter From <a href="https://twitter.com/0x_fxnction" target="_blank">0x_fxnction</a></div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          <p>
+          When dealing in crypto, on Solana or any other chain, there’s always the risk of having your wallet compromised.
+          </p>
+          <p>
+          This can happen by connecting to a malicious contract, clicking on phishing links, or becoming exposed in other ways. 
+        </p>
+        <p>
+          Recently my wallet was compromised for 2,349 SOL, roughly $240,000 in value at the time.
+        </p>
+        <p>
+          Due to the transparency of the blockchain, <a href="https://twitter.com/ZachXBT" target="_blank">@ZachXBT</a> was able to track the hacker as he attempted to “wash” the dirty money by transferring it through multiple wallets, a wormhole, and peer-to-peer swaps.
+        </p>
+        <p>
+          With Zach’s help, we were able to recover ~$50k by alerting the vendors to freeze the funds while they were in escrow.
+        </p>
+          <p>
+          The rest of the funds have yet to be recovered, and probably never will be. It’s extremely rare to recover anything at all; I was fortunate to even get a portion of it back.
+        </p>
+          <p>
+          While I thought I had decent practices to keep my wallets secure, this theft made me realize that there are more vulnerabilities I wasn’t prepared for.
+        </p>
+          <p>
+          As Solana becomes more popular, it’s increasingly important to educate the community on security best-practices, which is why we created The 4-Wallet System laid out in The Solana Security Playbook, and built security apps like Solana Shield.  
+        </p>        
+        </div>
+        <a href="https://github.com/joeshmoenft/solana-shield" target="_blank"><button class="glow-on-hover mt3 mb3">Install from Github</button></a>
+        <div class='f1 mt2 mb1'>FAQs</div>
+        <div class='f2 mt4 mb1'>How Do You Activate Solana Shield</div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          To get started, you'll input your:
+          <ul>
+            <li>Private Key for your Hot Wallet (the wallet you're Shielding)</li>
+            <li>Public Address for your Cold Wallet (the wallet for Storing)</li>
+          </ul>
+        </div>
+        <div class='f2 mt4 mb1'>Don't Have A Cold Wallet?</div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          Check out The Solana Security Playbook by Joe Shmoes to see our recommended 4-Wallet System (which includes the 2 wallets we recommend using with Solana Shield).
+        </div>
+        <div class='f2 mt4 mb1'>How Secure Is Solana Shield?</div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          <p>
+          Solana Shield, when used as explained, is a secure option that disincentivizes hackers from attacking your account, even if they gained access to your Seed Keys. Your Private Key is encrypted and hosted on Heroku.
+        </p>
+        <p>
+          The worst case scenario of using Solana Shield is that if someone hacks your Heroku instance and gets access to your Seed Key, they could disable the Shield and take anything (simply NFTs) in your Hot Wallet.
+          </p>
+          <p>
+          BUT, this would be extremely hard to do if you have 2FA setup for your e-mail and Heroku login – much harder than stealing your Seed Keys through malicious contracts or a Phishing scam.
+            </p>
+          <p>
+          Another benefit of Solana Shield is that even if your Seed Keys are hacked through another way not through Solana Shield, there would be no way for the Hacker to steal your funds because your Shield would be activated and they could not deposit SOL to make any transactions, as it’d automatically be transferred to your Cold Wallet.
+            </p>
+          <p>
+          In other words, the worst case scenario is that your Hot Wallet is hacked and you still have a good chance of keeping your funds safe. A better chance than if it was hacked and you weren’t using Solana Shield.
+            </p>
+        </div>
+        <div class='f2 mt4 mb1'>What Was The Inspiration Around Solana Shield?</div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          <p>When dealing in crypto, on Solana or any other chain, there’s always the risk of having your wallet compromised.</p>
+          <p>
+            This can happen by connecting to a malicious contract, clicking on phishing links, or becoming exposed in other ways. 
+          </p>
+
+        </div>
+
+        <div class='f2 mt4 mb1'>What Happens When I Activate Solana Shield?</div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          <ul>
+            <li>All SOL in your Hot Wallet is transferred safely to your Cold Wallet</li>
+            <li>Any SOL received from NFT sales and other sources is transferred safely to your Cold Wallet</li>
+            <li>Your Hot Wallet maintains a zero SOL balance</li>
+            <li>NFTs cannot be transferred out of your wallet</li>
+          </ul>
+        </div>
+
+        <div class='f2 mt4 mb1'>What Happens When I De-Activate Solana Shield?</div>
+        <div class='f4 mt4 mb1 w-60 ma4 lh-copy'>
+          <ul>
+            <li>You can resume trading normally</li>
+            <li>Just transfer SOL your Cold Wallet to your Hot Wallet, then re-activate Solana Shield to move your leftover SOL back to your Cold Wallet</li>
+          </ul>
+        </div>
+        <a href="https://github.com/joeshmoenft/solana-shield" target="_blank"><button class="glow-on-hover mt3">Install from Github</button></a>
+    </div>
+  </div>
+</body>
+</html>
